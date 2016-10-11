@@ -10,7 +10,7 @@ include("../divers/connexion.php");
 include("../divers/balises.php");
 
 if(!isset($_SESSION['id'])) {
-	// On n'est pas connecté, il faut retourner à la pgae de login
+	// On n'est pas connecté, il faut retourner à la page de login
 	header("Location:login.php");
 }
 
@@ -23,6 +23,17 @@ include("entete.php");
 // Connaitre les gens que l'on a invité et qui n'ont pas répondu : 
 // SELECT utilisateur.* FROM utilisateur INNER JOIN lien ON utilisateur.id=idUtilisateur2 AND etat='attente' AND idUtilisateur1=?
 // Paramètre 1 : le $_SESSION['id']
+
+    $sql = "SELECT utilisateur.* FROM utilisateur INNER JOIN lien ON utilisateur.id=idUtilisateur2 AND etat='attente' AND     idUtilisateur1=?";
+    $q = $pdo->prepare($sql);
+    $q->execute();
+    while($line = $q->fetch()) {
+
+        echo $line['nom']." "; 
+        echo $line['prenom']; 
+        echo "<br />"; 
+    }
+
 
 
 // Connaitre les gens qui nous ont invité et pour lequel on a pas répondu 
