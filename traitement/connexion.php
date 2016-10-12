@@ -2,6 +2,8 @@
 session_start();
 //Celui la ressemble au TD4 exo 3. 
 // A vous l'honneur
+include("../divers/connexion.php");
+include("../divers/balises.php");
 
 if(isset($_POST['login'])) 
 { // Le formulaire a été soumis
