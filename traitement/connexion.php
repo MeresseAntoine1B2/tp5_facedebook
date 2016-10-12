@@ -1,7 +1,5 @@
 <?php
 session_start();
-include("../divers/connexion.php");
-include("../divers/balises.php");
 
 //Celui la ressemble au TD4 exo 3. 
 // A vous l'honneur
