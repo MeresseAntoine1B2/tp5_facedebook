@@ -18,7 +18,8 @@ include("menu.php");
 	$who = $pdo->prepare ($sql);
 	$who -> execute(array($_GET['id']));
 	$line = $who -> fetch();
-	echo "Vous êtes sur le mur de ".$line['login'];
+	echo "Mur de ".$line['login'];
+    echo "<br/>";
 	
 if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 	// On n a pas donné le numéro de l'id de la personne dont on veut afficher le mur.
@@ -26,7 +27,7 @@ if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 	echo "Bizarre !!!!";die(1);
 }
 
-// On veut affchier notre mur ou celui d'un de nos amis et pas faire n'importe quoi 
+// On veut afficher notre mur ou celui d'un de nos amis et pas faire n'importe quoi 
 
 $ok = false;
 if($_GET['id']==$_SESSION['id']) {
@@ -73,10 +74,11 @@ if($ok==false) {
 	$q = $pdo->prepare ($sql);
 	$q -> execute(array($line['idAuteur']));
 	 $line2 = $q -> fetch();
-		echo 'Ecrit par';
+		echo 'Ecrit par ';
 	echo lien('mur.php?id='.$line['idAuteur'],$line2['login']);	
 		echo " le ";
 	echo $line['dateEcrit'];
+    echo "<br/>";
 	if($_SESSION['id'] == $_GET['id'] || $_SESSION['id'] == $line['idAuteur']){
 	echo lien("../traitement/effacer.php?id=".$line['id'],"Supprimer");
 		echo "<br/>" ;

@@ -1,27 +1,26 @@
-<?php
-// La page du formulaire de création d'un compte.
-// Le formulaire sera envoyé vers ../traitement/creercompte.php
 
 
-session_start();
-include("../divers/connexion.php");
-include("../divers/balises.php");
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+ 
+<h4> Pas encore assez démoniaque ? </h4>    
 
+<form action="../traitement/creercompte.php" method="post">
+    
+    <input type="text" name="login" placeholder="Login"/>
+    <br/>
+    <input type="password" name="passwd" placeholder="Mot de passe"/>
+    <br/>
+    <input type="password" name="confpasswd" placeholder="Confirmer mot de passe"/>
+    <br/>
+    <input type="submit" name="inscription" value="S'inscrire"/>
+    
+</form>
 
-
-include("entete.php");
-
-// Il faut faire des requêtes pour afficher ses amis, les attentes, les gens qu'on a invités qui ont pas répondu etc..
-// Elles sont listées ci-dessous
-// Connaitre ses amis : 
-
-
-
-?>
-
-
-
-<?php
-
-include("pied.php");
-?>
+        
+</body>
+</html> 
