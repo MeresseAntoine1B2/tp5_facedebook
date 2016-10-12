@@ -40,5 +40,5 @@ else
 
 
 // A la fin on retourne à la page d'amitié : 
-header("Location:affichage/ami.php");
+header("Location:../affichage/login.php");
 ?>
