@@ -10,6 +10,7 @@ if(!isset($_SESSION['id'])) {
 
 
 include("entete.php");
+include("menu.php");
 	
 
 	

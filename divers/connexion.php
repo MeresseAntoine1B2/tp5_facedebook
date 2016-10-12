@@ -2,15 +2,15 @@
 // Script connexion.php utilisé pour la connexion à la BD
 
 
-$host='localhost'; // le chemin vers le serveur (localhost dans 99% des cas)
+$host='ipabdd'; // le chemin vers le serveur (localhost dans 99% des cas)
 
-$db='facedebouc'; // le nom de votre base de données.
+$db='aurelienleva'; // le nom de votre base de données.
             // A l'IUT, 3 possibilité prenom_nom prenom_nom1 et prenom_nom2 
 
-$user='audemard'; // nom d'utilisateur pour se connecter
+$user='aurelien.leva'; // nom d'utilisateur pour se connecter
               // A l'iut prenom.nom	
 
-$passwd='aud123'; // mot de passe de l'utilisateur pour se connecter
+$passwd='Bxt+nTIe'; // mot de passe de l'utilisateur pour se connecter
             // A l'ut, généré automatiquement
 
 try {

@@ -1,5 +1,8 @@
 <?php
 session_start();
+include("../divers/connexion.php");
+include("../divers/balises.php");
+
 //Celui la ressemble au TD4 exo 3. 
 // A vous l'honneur
 include("../divers/connexion.php");
@@ -15,7 +18,7 @@ if(isset($_POST['login']))
     {
         $_SESSION['login'] = $_POST['login'];
         $_SESSION['id'] = $line['id'];
-        header("Location:mur.php?id=".$_SESSION['id']);
+        header("Location:../affichage/mur.php?id=".$_SESSION['id']);
     }
 }
 // Si ça marche on est redirigé vers son mur
