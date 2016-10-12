@@ -18,7 +18,9 @@ include("entete.php");
 
 if(isset($_SESSION['id'])) { // On est loggé
     echo "Bonjour ".$_SESSION['login']." ";
-    echo lien("../traitement/deconnexion.php","au revoir");
+    echo lien("../traitement/deconnexion.php","Déconnexion");
+    echo "<br/>";
+    include("menu.php");
 } else {
 
 // On est pas loggé, il faut afficher le formulaire
