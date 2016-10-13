@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <a href="login.php">Mon profil</a>
+    <a href="login.php">Accueil</a>
     <a href="ami.php">Mes amis démons</a>
     <a href="<?php echo "mur.php?id=".$_SESSION['id'];?>">Mon mur</a>
     <br/>

@@ -4,10 +4,6 @@
 
 
 session_start();
-//if(isset($_GET['action']) && $_GET['action']=="deconnexion") { // Il taut détruire la session
-//    session_destroy();
-//    header("Location:login.php");
-//}
 
 include("../divers/connexion.php");
 include("../divers/balises.php");
@@ -25,20 +21,26 @@ if(isset($_SESSION['id'])) { // On est loggé
 
 // On est pas loggé, il faut afficher le formulaire
 
-    echo "<form action='../traitement/connexion.php' method='POST'>";
-    echo input("text","login")."<br/>";
-    echo input("password","password")."<br/>";
-    echo input("submit","V");
-    echo "</form> <br/>";
     
+?>
+
+<h4> Connexion </h4>
+
+<form action='../traitement/connexion.php' method='POST'>
+ 
+    <input type="text" name="login" placeholder="Login"/>
+    <br/>
+    <input type="password" name="password" placeholder="Mot de passe"/>
+    <br/>
+    <input type="submit" name="connexion" value="Se connecter"/>
+    
+</form> 
+<br/>
+
+
+<?php    
+        include("creer.php");
 }
-
-
-
-// Il faut faire des requêtes pour afficher ses amis, les attentes, les gens qu'on a invités qui ont pas répondu etc..
-// Elles sont listées ci-dessous
-// Connaitre ses amis : 
-
 
 
 ?>
