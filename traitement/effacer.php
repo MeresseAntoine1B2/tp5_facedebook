@@ -8,6 +8,10 @@ if(!isset($_SESSION['id'])) {
 	header("Location:login.php");
 }
 
+	$sql = 'DELETE FROM ecrit where id=? AND (idAuteur=? OR idAmi=?)'; // vérifie qu'on est bien l'auteur du post a supprimer ou qu'il est sur notre mur
+   $q = $pdo->prepare($sql);
+   $q->execute(array($_GET['id'], $_SESSION["id"], $_SESSION["id"]));
+   
 // La requete de suppression d'un écrit (il faut le donner en get : DELETE FROM ecrit where id=?
 // Le paramètre est le $_GET['id']
 
