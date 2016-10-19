@@ -60,6 +60,8 @@ echo "<h4> Invitations d'amis démons : </h4>";
     while($line = $q->fetch()) {
 
         echo $line['login']." ";
+        echo "<input type='button' name='accepterAmi' value='Accepter'/>"." ";
+        echo "<input type='button' name='refuserAmi' value='Refuser'/>"." ";
         echo "<br />"; 
     }
 
