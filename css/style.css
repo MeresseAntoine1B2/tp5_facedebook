@@ -1,0 +1,26 @@
+header img
+{
+	width: 100px;
+}
+
+nav li
+{
+	display: inline-block;
+}
+
+.container
+{
+	width: 90%;
+	max-width: 920px;
+	margin: auto;
+}
+
+.groupe h4
+{
+	text-align: left;
+}
+
+.groupe
+{
+	text-align: center;
+}

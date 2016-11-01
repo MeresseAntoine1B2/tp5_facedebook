@@ -23,7 +23,7 @@ include("menu.php");
 // Elles sont listées ci-dessous
 
 ?>
-
+<div class="container">
 <form action="#" method="get">
 <input type="search" name="search" placeholder="Rechercher des démons"/>
 <input type="submit" value="Chercher"/>
@@ -36,17 +36,20 @@ include("../traitement/rechercher.php");
 // Connaitre les gens que l'on a invité et qui n'ont pas répondu : 
 // SELECT utilisateur.* FROM utilisateur INNER JOIN lien ON utilisateur.id=idUtilisateur2 AND etat='attente' AND idUtilisateur1=?
 // Paramètre 1 : le $_SESSION['id']
-
+echo "<div class='groupe'>";
 echo "<h4> Amis démons invités : </h4>";
 
     $sql = "SELECT utilisateur.* FROM utilisateur INNER JOIN lien ON utilisateur.id=idUtilisateur2 AND etat='attente' AND     idUtilisateur1=?";
     $q = $pdo->prepare($sql);
     $q->execute(array($_SESSION['id']));
+    echo "<ul>";
     while($line = $q->fetch()) {
-
+		echo "<li>";
         echo $line['login']." ";
-        echo "<br />"; 
+        echo "</li>";
     }
+    echo "</ul>";
+    echo "</div>";
 
 
 
@@ -54,39 +57,45 @@ echo "<h4> Amis démons invités : </h4>";
 // SELECT utilisateur.* FROM utilisateur WHERE id IN(SELECT idUtilisateur1 FROM lien WHERE idUtilisateur2=? AND etat='attente'
 // Paramètre 1 : le $_SESSION['id']
 
+echo "<div class='groupe'>";
 echo "<h4> Invitations d'amis démons : </h4>";
 
     $sql = "SELECT utilisateur.* FROM utilisateur WHERE id IN(SELECT idUtilisateur1 FROM lien WHERE idUtilisateur2=? AND etat='attente')";
     $q = $pdo->prepare($sql);
     $q->execute(array($_SESSION['id']));
+    echo "<ul>";
     while($line = $q->fetch()) {
-		  echo "<p>";
+		  echo "<li>";
         echo $line['login']." ";
         echo "<br />";
         echo "<a href='../traitement/valideramitie.php?etat=ami&id=".$line["id"]."'>accepter</a> 
         <a href='../traitement/valideramitie.php?etat=banni&id=".$line["id"]."'>refuser</a></p>";
+        echo "</li>";
     }
-
+    echo "</ul>";
+echo "</div>";
 
 // Connaitre ses amis : SELECT * FROM utilisateur WHERE id IN (SELECT )
 // SELECT utilisateur.* FROM utilisateur INNER JOIN lien ON idUtilisateur1=utilisateur.id AND etat='ami' AND idUTilisateur2=? UNION SELECT utilisateur.* FROM utilisateur INNER JOIN lien ON idUtilisateur2=utilisateur.id AND etat='ami' AND idUTilisateur1=?
 // Les deux paramètres sont le $_SESSION['id']
 
+echo "<div class='groupe'>";
 echo "<h4> Mes amis démons : </h4>";
 
     $sql = "SELECT utilisateur.* FROM utilisateur INNER JOIN lien ON idUtilisateur1=utilisateur.id AND etat='ami' AND idUTilisateur2=? UNION SELECT utilisateur.* FROM utilisateur INNER JOIN lien ON idUtilisateur2=utilisateur.id AND etat='ami' AND idUTilisateur1=?";
     $q = $pdo->prepare($sql);
     $q->execute(array($_SESSION['id'], $_SESSION['id']));
+    echo "<ul>";
     while($line = $q->fetch()) {
 
-        echo $line['login']." ";
-        echo "<br />"; 
+        echo "<li>".lien("mur.php?id=".$line["id"], $line['login'])."</li>";
     }
-
+    echo "</ul>";
+echo "</div>";
 
 ?>
 
-
+</div> <!-- fin container -->
 
 <?php
 

@@ -1,20 +1,8 @@
-
-
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Login</title>
-</head>
-<body>
-    
-    <a href="login.php">Accueil</a>
-    <a href="ami.php">Mes amis démons</a>
-    <a href="<?php echo "mur.php?id=".$_SESSION['id'];?>">Mon mur</a>
-    <br/>
-    
-    
-</body>
-</html>    
-
+ <nav>   
+    <ul>
+	    <li><a href="login.php">Accueil</a></li>
+	    <li><a href="ami.php">Mes amis démons</a></li>
+	    <li><a href="<?php echo "mur.php?id=".$_SESSION['id'];?>">Mon mur</a></li>
+    </ul>
+</nav>
 

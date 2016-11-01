@@ -7,14 +7,12 @@
 </head>
 <body>
 
-
-<body>
-
 <?php
 // Ici il faut mettre l'entete de la page pour pas la réécrire à chaque fois !
 // Style l'image du site
-echo "<img src='logo.png' id='logo' alt='logo' width='100px'>";
+echo "<header>";
+echo "<img src='logo.png' id='logo' alt='logo'>";
 echo "<h3> Devilbook </h3>";
-   
+  echo "</header>";
     
 ?>

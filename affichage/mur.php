@@ -12,13 +12,13 @@ if(!isset($_SESSION['id'])) {
 include("entete.php");
 include("menu.php");
 	
-
+echo "<div class='container'>";
 	
 	$sql="SELECT * FROM utilisateur where id=?";
 	$who = $pdo->prepare ($sql);
 	$who -> execute(array($_GET['id']));
 	$line = $who -> fetch();
-	echo "Mur de ".$line['login'];
+	echo "<h1>Mur de ".$line['login']."</h1>";
     echo "<br/>";
 	
 if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
@@ -99,7 +99,7 @@ if($ok==false) {
 	<input type="submit" name="Envoyer" value="Envoyer">
 	
 </form>	
-
+</div> <!-- fin container -->
 <?php
 } // else pas ami 
 // On termine par le pied de page
