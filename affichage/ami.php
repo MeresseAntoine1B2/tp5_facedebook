@@ -62,6 +62,7 @@ echo "<h4> Invitations d'amis démons : </h4>";
         echo $line['login']." ";
         echo "<input type='button' name='accepterAmi' value='Accepter'/>"." ";
         echo "<input type='button' name='refuserAmi' value='Refuser'/>"." ";
+        echo "<input type='hidden' name='id' value='".$line["idUtilisateur1"]."'/>";
         echo "<br />"; 
     }
 

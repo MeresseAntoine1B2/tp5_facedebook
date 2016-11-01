@@ -14,5 +14,8 @@ if(!isset($_SESSION['id'])) {
 // Le second paramètre de la requête est le $_POST['id'] : celui a qui on repond
 // Le troisieme paramètre de la requête est le SESSION['id'] : celui qui répond à la demande d'amitié
 
+$sql = "UPDATE lien set etat=? INTO lien WHERE idUtilisateur1=? and idUtilisateur2=?";
+$q = $pdo->prepare($sql);
 
+$q->execute(array($_POST["id"], $_SESSION['id']));
 ?>
