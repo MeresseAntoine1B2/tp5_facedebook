@@ -18,6 +18,10 @@ if(isset($_POST['login']))
         $_SESSION['id'] = $line['id'];
         header("Location:../affichage/mur.php?id=".$_SESSION['id']);
     }
+    else 
+    {
+    	header("Location:../affichage/login.php?connexion=error");
+    }
 }
 // Si ça marche on est redirigé vers son mur
 
