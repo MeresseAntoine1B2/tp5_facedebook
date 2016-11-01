@@ -6,11 +6,11 @@ include("../divers/balises.php");
 
 if(!isset($_SESSION['id'])) {
 	// On n'est pas connecté, il faut retourner à la pgae de login
-	header("Location:login.php");
+	header("Location:../affichage/login.php");
 }
 if(!isset($_GET["id"]) && !isset($_GET["etat"]))
 {
-	header("Location:ami.php");
+	header("Location:../affichage/ami.php");
 }
 // La requete de demande de creation amitie : UPDATE lien set etat=? INTO lien WHERE idUtilisateur1=? and idUtilisateur2=?
 // Le premier paramètre de la requête la valeur banni si on veut pas ou la valeur ami si on est d'accord
@@ -21,4 +21,5 @@ $sql = "UPDATE lien set etat=? WHERE idUtilisateur1=? and idUtilisateur2=?";
 $q = $pdo->prepare($sql);
 
 $q->execute(array($_GET["etat"], $_GET["id"], $_SESSION['id']));
+header("Location:../affichage/ami.php");
 ?>

@@ -62,7 +62,7 @@ echo "<h4> Invitations d'amis démons : </h4>";
         echo $line['login']." ";
         echo "<br />";
         echo "<a href='../traitement/valideramitie.php?etat=ami&id=".$line["id"]."'>accepter</a> 
-        <a href='../traitement/valideramitie.php?etat=ami&id=".$line["id"]."'>refuser</a></p>";
+        <a href='../traitement/valideramitie.php?etat=banni&id=".$line["id"]."'>refuser</a></p>";
     }
 
 

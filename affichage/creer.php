@@ -1,12 +1,4 @@
 
-
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-</head>
-<body>
- 
 <h4> Pas encore assez démoniaque ? </h4>    
 
 <form action="../traitement/creercompte.php" method="post">
@@ -20,7 +12,3 @@
     <input type="submit" name="inscription" value="S'inscrire"/>
     
 </form>
-
-        
-</body>
-</html> 
