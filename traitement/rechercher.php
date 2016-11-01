@@ -1,20 +1,13 @@
 <?php
-session_start();
-include("../divers/connexion.php");
-include("../divers/balises.php");
-
-if(!isset($_SESSION['id'])) {
-	// On n'est pas connecté, il faut retourner à la pgae de login
-	header("Location:login.php");
-}
-else 
+if(isset($_GET['search'])) 
 {
-	$sql = 'SELECT * FROM utilisateur WHERE login like "%?%"';
+	$sql = 'SELECT * FROM utilisateur WHERE login like ?';
    $q = $pdo->prepare($sql);
-   $q->execute(array($_GET['nom']));
+   $q->execute(array("%".$_GET['search']."%"));
    while($line = $q->fetch()) 
    {
-   	$personnes
+   	echo $line["login"]."<br />";
+   	echo lien("../traitement/demanderamitie.php?id=".$line["id"], "Demander en ami")."<br />";
    }
 }
 // La requete de recherche de gens par rapport à leur login

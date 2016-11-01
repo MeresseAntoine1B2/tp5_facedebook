@@ -16,11 +16,11 @@ else
 // Le troisième parametre de la requete est le $_POST['id'] 
 // Le quatrième paramètre $_SESSION['id']
 // Si il y a une réponse il n'y a rien à faire.
-	if(isset($_POST["id"])) 
+	if(isset($_GET["id"])) 
 	{
 		$sql = "SELECT * FROM lien WHERE (idUtilisateur1=? AND idUtilisateur2=?) OR  (idUtilisateur1=? AND idUtilisateur2=?)";
 		$query = $pdo->prepare($sql);
-		$query->execute(array($_SESSION["id"],$_POST["id"], $_POST["id"], $_SESSION["id"]));
+		$query->execute(array($_SESSION["id"],$_GET["id"], $_GET["id"], $_SESSION["id"]));
 		
 		if(!$query->fetch()) 
 		{
@@ -28,9 +28,9 @@ else
 // Le premier parametre de la requête est le SESSION['id'] : celui qui a demandé l'amitié
 // Le second parametre de la requete est le $_POST['id'] 
 
-			$sql = 'INSERT INTO lien VALUES(?,?,"attente")';
+			$sql = 'INSERT INTO lien VALUES(NULL,?,?,"attente")';
 			$query = $pdo->prepare($sql);
-			$query->execute(array($_SESSION["id"],$_POST["id"]));
+			$query->execute(array($_SESSION["id"],$_GET["id"]));
 		}
 	}
 }
@@ -40,5 +40,5 @@ else
 
 
 // A la fin on retourne à la page d'amitié : 
-header("Location:../affichage/login.php");
+header("Location:../affichage/ami.php");
 ?>

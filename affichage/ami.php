@@ -31,6 +31,8 @@ include("menu.php");
 
 <?php
 
+include("../traitement/rechercher.php");
+
 // Connaitre les gens que l'on a invité et qui n'ont pas répondu : 
 // SELECT utilisateur.* FROM utilisateur INNER JOIN lien ON utilisateur.id=idUtilisateur2 AND etat='attente' AND idUtilisateur1=?
 // Paramètre 1 : le $_SESSION['id']
