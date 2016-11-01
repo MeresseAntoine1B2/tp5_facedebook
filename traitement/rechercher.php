@@ -14,7 +14,7 @@ else
    $q->execute(array($_GET['nom']));
    while($line = $q->fetch()) 
    {
-   	// à compléter
+   	$personnes
    }
 }
 // La requete de recherche de gens par rapport à leur login

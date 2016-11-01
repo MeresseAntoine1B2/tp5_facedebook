@@ -58,12 +58,11 @@ echo "<h4> Invitations d'amis démons : </h4>";
     $q = $pdo->prepare($sql);
     $q->execute(array($_SESSION['id']));
     while($line = $q->fetch()) {
-
+		  echo "<p>";
         echo $line['login']." ";
-        echo "<input type='button' name='accepterAmi' value='Accepter'/>"." ";
-        echo "<input type='button' name='refuserAmi' value='Refuser'/>"." ";
-        echo "<input type='hidden' name='id' value='".$line["idUtilisateur1"]."'/>";
-        echo "<br />"; 
+        echo "<br />";
+        echo "<a href='../traitement/valideramitie.php?etat=ami&id=".$line["id"]."'>accepter</a> 
+        <a href='../traitement/valideramitie.php?etat=ami&id=".$line["id"]."'>refuser</a></p>";
     }
 
 
