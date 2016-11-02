@@ -23,7 +23,7 @@ elseif(isset($_POST["passwd"]) && isset($_POST["confpasswd"]) && isset($_POST["l
 	{
 		$sql = "INSERT INTO utilisateur VALUES(NULL,?,?)";
 		$query = $pdo -> prepare($sql);
-		$query -> execute(array($_POST["login"], $_POST["passwd"]));
+		$query -> execute(array($_POST["login"], md5($_POST["passwd"])));
 		
 		$_SESSION["login"] = $_POST["login"];
 		$sql = "SELECT LAST_INSERT_ID() FROM utilisateur";

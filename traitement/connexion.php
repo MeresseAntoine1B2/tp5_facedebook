@@ -10,7 +10,7 @@ if(isset($_POST['login']))
 { // Le formulaire a été soumis
     $sql = "SELECT * FROM utilisateur WHERE login=? AND passwd=?";
     $q = $pdo->prepare($sql);
-    $q->execute(array($_POST['login'],$_POST['password']));
+    $q->execute(array($_POST['login'],md5($_POST['password'])));
     $line = $q->fetch();
     if($line != false)
     {
