@@ -37,7 +37,7 @@ elseif(isset($_POST["passwd"]) && isset($_POST["confpasswd"]) && isset($_POST["l
 		// Ca serait bien d'être loggé !
 		// A la fin on retourne à la page d'amitié :  il faut bien se faire des amis !
 		//header("Location:../affichage/ami.php");
-		header("Location:../affichage/login.php");
+		header("Location:../affichage/ami.php");
 	}
 }
 else 

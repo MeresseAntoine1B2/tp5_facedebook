@@ -42,14 +42,16 @@ echo "<h4> Invitations d'amis démons encore en attente : </h4>";
 <div id="loginconnexion">
 <div class="container">
 <h4>Déjà un des notre ?</h4>
+<?php
+ 	if (isset($_GET["connexion"]) && $_GET["connexion"] =="error")
+ 		echo "<br />Login ou mot de passe incorrect <br />";
+ 	?>
 <form action='../traitement/connexion.php' method='POST'>
- 
     <input type="text" name="login" placeholder="Login"/>
     <br/>
-    <input type="password" name="password" placeholder="Mot de passe"/>
+    <input type="password" name="password" placeholder="Mot de passe" />
     <br/>
     <input type="submit" name="connexion" value="Se connecter"/>
-    
 </form> 
 </div>
 </div>
@@ -60,6 +62,12 @@ echo "<h4> Invitations d'amis démons encore en attente : </h4>";
         include("creer.php");
 }
 
+ 	if (isset($_GET["inscription"]) && $_GET["inscription"]=="error1")
+ 		echo "<br />Ce login existe déjà <br />";
+ 	if (isset($_GET["inscription"]) && $_GET["inscription"]=="error2")
+ 		echo "<br />Le mot de passe et la confirmation ne correspondent pas<br />";
+ 	if (isset($_GET["inscription"]) && $_GET["inscription"]=="error3")
+ 		echo "<br />Erreur<br />";
 
 ?>
 </div>
