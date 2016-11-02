@@ -244,12 +244,12 @@ h2
 #loginconnexion
 {
 	background: url("brique.jpg");
-	height: 500px;
+	height: 300px;
 	text-align: center;
 }
 #loginconnexion form
 {
-	margin-top: 200px;	
+	margin-top: 50px;	
 	text-align: center;
 	display: inline-block;
 }
@@ -266,13 +266,13 @@ h2
 
 #logininscription
 {
-	height: 500px;
+	margin-top: 50px;
+	height: 300px;
 	color: white;
 }
 
 #logininscription form
 {
-	margin-top: 200px;	
 	text-align: center;
 	display: inline-block;
 }
@@ -283,6 +283,7 @@ h2
 #logininscription h4
 {
 	color: #A91101;
+	vertical-align: 20%;
 	font-size: 2em;
 	display: inline-block;
 }

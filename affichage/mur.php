@@ -96,7 +96,6 @@ if($ok==false) {
 	<input type="hidden" name="idAmi" value="<?php echo $_GET['id'];?>"><br>	
 	<textarea placeholder="Parle nous de tes exploits démoniaques" name="contenu" id="txtboxmur"></textarea><br/>
 	<input type="submit" name="Envoyer" value="Envoyer">
-	<input type="file" name="image" />
 </form>	
 </div> <!-- fin container -->
 <?php
