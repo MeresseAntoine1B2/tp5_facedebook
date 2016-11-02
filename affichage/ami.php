@@ -23,19 +23,24 @@ include("menu.php");
 // Elles sont listées ci-dessous
 
 ?>
+<div id="bandesearch">
 <div class="container">
-<form action="#" method="get">
-<input type="search" name="search" placeholder="Rechercher des démons"/>
-<input type="submit" value="Chercher"/>
+<form action="#" method="get" id="formsearch">
+<input type="search" name="search" placeholder="Rechercher des démons" id="search"/>
+<input type="submit" value="Chercher" id="recherche"/>
 </form>
 
 <?php
 
 include("../traitement/rechercher.php");
-
+?>
+</div>
+</div>
+<?php
 // Connaitre les gens que l'on a invité et qui n'ont pas répondu : 
 // SELECT utilisateur.* FROM utilisateur INNER JOIN lien ON utilisateur.id=idUtilisateur2 AND etat='attente' AND idUtilisateur1=?
 // Paramètre 1 : le $_SESSION['id']
+echo '<div class="container">';
 echo "<div class='groupe'>";
 echo "<h4> Amis démons invités : </h4>";
 
@@ -44,9 +49,9 @@ echo "<h4> Amis démons invités : </h4>";
     $q->execute(array($_SESSION['id']));
     echo "<ul>";
     while($line = $q->fetch()) {
-		echo "<li>";
+		echo "<li><div class='nom'>";
         echo $line['login']." ";
-        echo "</li>";
+        echo "</div></li>";
     }
     echo "</ul>";
     echo "</div>";
@@ -57,7 +62,7 @@ echo "<h4> Amis démons invités : </h4>";
 // SELECT utilisateur.* FROM utilisateur WHERE id IN(SELECT idUtilisateur1 FROM lien WHERE idUtilisateur2=? AND etat='attente'
 // Paramètre 1 : le $_SESSION['id']
 
-echo "<div class='groupe'>";
+echo "<div class='groupe invit'>";
 echo "<h4> Invitations d'amis démons : </h4>";
 
     $sql = "SELECT utilisateur.* FROM utilisateur WHERE id IN(SELECT idUtilisateur1 FROM lien WHERE idUtilisateur2=? AND etat='attente')";
@@ -65,9 +70,9 @@ echo "<h4> Invitations d'amis démons : </h4>";
     $q->execute(array($_SESSION['id']));
     echo "<ul>";
     while($line = $q->fetch()) {
-		  echo "<li>";
+		  echo "<li><div class='nom'>";
         echo $line['login']." ";
-        echo "<br />";
+        echo "</div>";
         echo "<a href='../traitement/valideramitie.php?etat=ami&id=".$line["id"]."'>accepter</a> 
         <a href='../traitement/valideramitie.php?etat=banni&id=".$line["id"]."'>refuser</a></p>";
         echo "</li>";
@@ -79,7 +84,7 @@ echo "</div>";
 // SELECT utilisateur.* FROM utilisateur INNER JOIN lien ON idUtilisateur1=utilisateur.id AND etat='ami' AND idUTilisateur2=? UNION SELECT utilisateur.* FROM utilisateur INNER JOIN lien ON idUtilisateur2=utilisateur.id AND etat='ami' AND idUTilisateur1=?
 // Les deux paramètres sont le $_SESSION['id']
 
-echo "<div class='groupe'>";
+echo "<div class='groupe ami'>";
 echo "<h4> Mes amis démons : </h4>";
 
     $sql = "SELECT utilisateur.* FROM utilisateur INNER JOIN lien ON idUtilisateur1=utilisateur.id AND etat='ami' AND idUTilisateur2=? UNION SELECT utilisateur.* FROM utilisateur INNER JOIN lien ON idUtilisateur2=utilisateur.id AND etat='ami' AND idUTilisateur1=?";

@@ -13,19 +13,35 @@ include("entete.php");
 
 
 if(isset($_SESSION['id'])) { // On est loggé
-    echo "Bonjour ".$_SESSION['login']." ";
-    echo lien("../traitement/deconnexion.php","Déconnexion");
-    echo "<br/>";
     include("menu.php");
+    echo "<div class='container'>";
+    echo "<div class='groupe invit'>";
+echo "<h4> Invitations d'amis démons encore en attente : </h4>";
+
+    $sql = "SELECT utilisateur.* FROM utilisateur WHERE id IN(SELECT idUtilisateur1 FROM lien WHERE idUtilisateur2=? AND etat='attente')";
+    $q = $pdo->prepare($sql);
+    $q->execute(array($_SESSION['id']));
+    echo "<ul>";
+    while($line = $q->fetch()) {
+		  echo "<li><div class='nom'>";
+        echo $line['login']." ";
+        echo "</div>";
+        echo "<a href='../traitement/valideramitie.php?etat=ami&id=".$line["id"]."'>accepter</a> 
+        <a href='../traitement/valideramitie.php?etat=banni&id=".$line["id"]."'>refuser</a></p>";
+        echo "</li>";
+    }
+    echo "</ul>";
+	 echo "</div>";
+	 echo "</div>";
 } else {
 
 // On est pas loggé, il faut afficher le formulaire
 
     
 ?>
-
-<h4> Connexion </h4>
-
+<div id="loginconnexion">
+<div class="container">
+<h4>Déjà un des notre ?</h4>
 <form action='../traitement/connexion.php' method='POST'>
  
     <input type="text" name="login" placeholder="Login"/>
@@ -35,16 +51,19 @@ if(isset($_SESSION['id'])) { // On est loggé
     <input type="submit" name="connexion" value="Se connecter"/>
     
 </form> 
-<br/>
+</div>
+</div>
 
-
+<div id="logininscription">
+<div class="container">
 <?php    
         include("creer.php");
 }
 
 
 ?>
-
+</div>
+</div>
 
 <?php
 

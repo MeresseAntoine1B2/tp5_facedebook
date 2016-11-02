@@ -11,15 +11,14 @@ if(!isset($_SESSION['id'])) {
 
 include("entete.php");
 include("menu.php");
-	
-echo "<div class='container'>";
+
 	
 	$sql="SELECT * FROM utilisateur where id=?";
 	$who = $pdo->prepare ($sql);
 	$who -> execute(array($_GET['id']));
 	$line = $who -> fetch();
 	echo "<h1>Mur de ".$line['login']."</h1>";
-    echo "<br/>";
+   echo "<div class='container'>";
 	
 if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 	// On n a pas donné le numéro de l'id de la personne dont on veut afficher le mur.
@@ -65,23 +64,23 @@ if($ok==false) {
  $querry -> execute(array($_GET['id']));
  
  while ($line = $querry -> fetch()){
-	echo "Titre: ";
+	echo "<h2> ";
 	echo $line['titre']."<br/>";
-	echo "Message: ";
-	echo $line['contenu']."<br/>";
+	echo "</h2><p class='txtmur'> ";
+	echo $line['contenu']."</p>";
  
 	$sql="SELECT * FROM utilisateur where id=?";
 	$q = $pdo->prepare ($sql);
 	$q -> execute(array($line['idAuteur']));
 	 $line2 = $q -> fetch();
-		echo 'Ecrit par ';
+		echo '<p class="qui">Ecrit par ';
 	echo lien('mur.php?id='.$line['idAuteur'],$line2['login']);	
 		echo " le ";
 	echo $line['dateEcrit'];
     echo "<br/>";
 	if($_SESSION['id'] == $_GET['id'] || $_SESSION['id'] == $line['idAuteur']){
 	echo lien("../traitement/effacer.php?id=".$line['id'],"Supprimer");
-		echo "<br/>" ;
+		echo "</p>" ;
 	}
 	
 }
@@ -93,11 +92,11 @@ if($ok==false) {
 ?>
 
 <form action="../traitement/ecrire.php" method="POST">
-	<input type="text" name="titre"><br>
+	<input type="text" name="titre" placeholder="Titre" id="titremur"><br>
 	<input type="hidden" name="idAmi" value="<?php echo $_GET['id'];?>"><br>	
-	<textarea placeholder="Lache ton message Bro" name="contenu" ></textarea><br/>
+	<textarea placeholder="Parle nous de tes exploits démoniaques" name="contenu" id="txtboxmur"></textarea><br/>
 	<input type="submit" name="Envoyer" value="Envoyer">
-	
+	<input type="file" name="image" />
 </form>	
 </div> <!-- fin container -->
 <?php

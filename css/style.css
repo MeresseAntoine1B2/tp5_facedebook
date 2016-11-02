@@ -1,11 +1,74 @@
+header
+{
+	text-align: center;
+	background-color: #fff;
+	box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.25);
+}
 header img
 {
 	width: 100px;
-}
 
-nav li
+}
+header h3
+{
+	width: 150px;
+	margin: auto;
+}
+header *
 {
 	display: inline-block;
+	vertical-align: middle;
+
+}
+nav
+{
+	/*background-color: #A91101;*/
+	background-color:#a73f2d;
+	box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.25);
+	line-height: 50px;
+		-moz-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	-webkit-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	box-shadow:inset 0px 34px 0px -15px #b54b3a;
+}
+nav a
+{
+	color: white;
+	
+	-moz-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	-webkit-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	background-color:#a73f2d;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #7a2a1d;
+}
+
+nav a:hover
+{
+	border-right: 1px black dotted;
+	border-left: 1px black dotted;
+}
+
+a
+{
+	color: #A91101;
+}
+
+ul
+{
+	text-align: center;
+}
+li
+{
+	display: inline-block;
+	text-align: center;
+	margin: 0 15px;
 }
 
 .container
@@ -15,12 +78,211 @@ nav li
 	margin: auto;
 }
 
-.groupe h4
+#bandesearch
+{
+	padding: 15px;
+	background: url("brique.jpg");
+}
+
+#bandesearch li
+{
+	height: 150px;
+	background: url("avatar.png") no-repeat center center;
+	background-size: 150px 150px;
+	margin-top: 15px;
+}
+.resultsearch
+{
+	color: white;
+	text-shadow:0px -1px 0px black;
+	margin-top: 65px;
+	font-size: 1.4em;
+}
+
+.resultsearch a
+{
+
+	margin-top: 15px;
+	-moz-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	-webkit-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	background-color:#a73f2d;
+	border:1px solid #241d13;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #7a2a1d;
+}
+
+ h4
 {
 	text-align: left;
+	color: white;
+	font-size: 1.2em;
 }
 
 .groupe
 {
 	text-align: center;
+	margin-top: 50px;
+	padding: 15px;
+}
+
+.groupe li
+{
+	height: 150px;
+	width: 150px;
+	background: url("avatarb.png") no-repeat center center;
+	background-size: 150px 150px;
+	margin-top: 15px;
+}
+
+.invit li
+{
+	width: 220px;
+}
+
+.groupe li a
+{
+	margin-top: 15px;
+	-moz-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	-webkit-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	background-color:#a73f2d;
+	border:1px solid #241d13;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #7a2a1d;
+}
+
+.nom
+{
+	color: white;
+	text-shadow:0px -1px 0px black;
+	margin-top: 65px;
+	font-size: 1.4em;
+}
+
+#search
+{
+	width: 70%;
+}
+#recherche
+{
+	width: 29%;
+}
+
+footer
+{
+	margin-top: 15px;
+	padding: 15px;
+	background: url("brique.jpg");
+	width: 100%;
+	text-align: center;
+}
+
+body
+{
+	background-color: rgba(9, 11, 22, 0.85); 
+}
+
+h1
+{
+	color: black;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: url("brique.jpg"); 
+}
+
+.qui
+{
+	text-align: right;
+	color: white;
+	padding-bottom: 15px;
+	border-bottom: 1px white dotted;
+}
+
+.txtmur
+{
+	color: white;
+	margin-bottom: 15px;
+	max-width: 100%;
+}
+
+h2
+{
+	color: white;
+	margin: 15px;
+}
+
+#titremur
+{
+	margin-top: 15px;
+}
+
+#txtboxmur
+{
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 150px;
+	border-radius: 3px;
+	margin-bottom: 15px;
+}
+
+#loginconnexion
+{
+	background: url("brique.jpg");
+	height: 500px;
+	text-align: center;
+}
+#loginconnexion form
+{
+	margin-top: 200px;	
+	text-align: center;
+	display: inline-block;
+}
+#loginconnexion form *
+{
+	margin: 5px;
+}
+#loginconnexion h4
+{
+	color: #A91101;
+	font-size: 3em;
+	display: inline-block;
+}
+
+#logininscription
+{
+	height: 500px;
+	color: white;
+}
+
+#logininscription form
+{
+	margin-top: 200px;	
+	text-align: center;
+	display: inline-block;
+}
+#logininscription form *
+{
+	margin: 5px;
+}
+#logininscription h4
+{
+	color: #A91101;
+	font-size: 2em;
+	display: inline-block;
 }

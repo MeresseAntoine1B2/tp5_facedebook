@@ -30,13 +30,14 @@ elseif(isset($_POST["passwd"]) && isset($_POST["confpasswd"]) && isset($_POST["l
 		$query = $pdo -> prepare($sql);
 		$query -> execute();
 		$line = $query -> fetch();
-		$_SESSION["id"] = $line["id"];
+		$_SESSION["id"] = $line["LAST_INSERT_ID()"];
 		$_SESSION['login'] = $_POST['login'];
 		
 		echo $_SESSION["id"]." ".$_SESSION["login"];
 		// Ca serait bien d'être loggé !
 		// A la fin on retourne à la page d'amitié :  il faut bien se faire des amis !
 		//header("Location:../affichage/ami.php");
+		header("Location:../affichage/login.php");
 	}
 }
 else 

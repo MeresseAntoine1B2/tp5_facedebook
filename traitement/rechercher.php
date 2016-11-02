@@ -7,8 +7,8 @@ if(isset($_GET['search']))
    echo "<ul>";
    while($line = $q->fetch()) 
    {
-   	echo "<li>".$line["login"]."<br />";
-   	echo lien("../traitement/demanderamitie.php?id=".$line["id"], "Demander en ami")."</li>";
+   	echo "<li><div class='resultsearch'>".$line["login"]."<br />";
+   	echo lien("../traitement/demanderamitie.php?id=".$line["id"], "Demander en ami")."</div></li>";
    }
    echo "</ul>";
 }
